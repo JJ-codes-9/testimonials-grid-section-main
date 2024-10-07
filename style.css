@@ -1,3 +1,4 @@
+/*CSS RESET*/
 /* Box sizing rules */
 *,
 *::before,
@@ -73,22 +74,22 @@ select {
 	}
 }
 
+/* General layout */
+
 body {
-	place-content: center;
-	margin: 0 8rem;
-	min-height: 100vh;
+	height: 100vh;
+	margin: 0;
+	padding: 2rem;
 	font-family: "Barlow Semi Condensed", sans-serif;
 	font-size: 16px;
-	background-color: hsl(210, 46%, 95%);
+	background-color: rgb(236, 242, 248);
 }
 
 .testimonial-grid {
 	display: grid;
 	gap: 1.5rem;
-	grid-template-columns: repeat(
-		4,
-		1fr
-	);
+	grid-template-columns: repeat(4, 1fr);
+	margin: 2rem auto;
 }
 
 .grid-col-span-2 {
@@ -102,8 +103,8 @@ body {
 }
 
 .testimonial {
-	padding: 2rem;
-  border-radius: 0.5rem;
+	padding: 1rem;
+	border-radius: 0.5rem;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 	transition: transform 0.3s ease;
 }
@@ -114,38 +115,80 @@ body {
 
 .testimonial .highlight {
 	font-weight: 600;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	line-height: 1.2;
 }
 
 .testimonial .name {
 	font-size: 1rem;
-  z-index: 1;
+	z-index: 1;
 }
 
 .testimonial:first-child {
-	background-color: hsl(263, 55%, 52%);
-	color: white;
+	background-color: rgb(117, 65, 200);
+	color: rgb(255, 255, 255);
 }
 
 .testimonial:nth-child(2) {
-  background-color: hsl(217, 19%, 35%);
-  color: white;
+	background-color: rgb(72, 85, 106);
+	color: rgb(255, 255, 255);
 }
 
 .testimonial:nth-child(4) {
-background-color: hsl(219, 29%, 14%);
-color: white;
+	background-color: rgb(25, 33, 46);
+	color: white;
 }
 
 .quote {
-  z-index: 0;
-  background-image: url("./images/bg-pattern-quotation.svg");
-  background-repeat: no-repeat;
-  background-position: top right 10%;
+	z-index: 0;
+	background-image: url("./images/bg-pattern-quotation.svg");
+	background-repeat: no-repeat;
+	background-position: top right 10%;
 }
 
 img {
-  border-radius: 50%;
+	border-radius: 50%;
+	margin-right: 1rem;
+}
+
+.flex {
+	display: flex;
+}
+
+.category {
+	font-size: smaller;
+}
+
+/* Footer styling */
+.attribution {
+	font-size: 0.5rem;
+	text-align: center;
+	padding: 1rem;
+	background-color: #f1f1f1;
+	width: 100%;
+}
+
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 768px) {
+	.testimonial-grid {
+		grid-template-columns: 1fr !important;
+		gap: 1rem;
+		max-width: 100%;
+	}
+
+	.grid-col-span-2 {
+		grid-column: auto !important;
+	}
+
+	.testimonial:last-child {
+		grid-column-start: auto;
+		grid-row-start: auto;
+		grid-row-end: auto;
+	}
 }
